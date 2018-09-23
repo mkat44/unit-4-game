@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Super Smash Bros-Ulticlick</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="assets/javascript/game.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
+</head>
+<body>
+    <div class="header bg-dark sticky-top">
+        <div class="container" id="headertable">
+            <div class="row">
+                <div class="col-md-4" id="instructions">
+                    <div class="row">
+                        <div class="col-md-12" id="stepone">
+                            <h6>#1. Choose your fighter!</h6>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12" id="steptwo">
+                            <h6>#2. Choose your opponent!</h6>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12" id="stepthree">
+                            <h6>#3. Choose your arena!</h6>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 id=stepfour">
+                            <h6>#4. Click your way to victory!</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8" id="headerlogo">
+                    <img src="assets/images/SSB_logo.png" class="img-fluid" id="headerlogoimg">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="charactertable">
+        <div class="row no-gutters">
+            <div class="col-md-3" id="button playerimgtable mario"><img class="img-fluid rounded" src="assets/images/Mario_small.png"></div>
+            <div class="col-md-3" id="button playerimgtable dk"><img class="img-fluid rounded" src="assets/images/Donkey_Kong_small.png"></div>
+            <div class="col-md-3" id="button playerimgtable link"><img class="img-fluid rounded" src="assets/images/Link_small.png"></div>
+            <div class="col-md-3" id="button playerimgtable samus"><img class="img-fluid rounded" src="assets/images/Samus_small.png"></div>
+        </div>
+        <div class="row no-gutters">
+            <div class="col-md-3" id="button playerimgtable yoshi"><img class="img-fluid rounded" src="assets/images/Yoshi_small.png"></div>
+            <div class="col-md-3" id="button playerimgtable kirby"><img class="img-fluid rounded" src="assets/images/Kirby_small.png"></div>
+            <div class="col-md-3" id="button playerimgtable fox"><img class="img-fluid rounded" src="assets/images/Fox_small.png"></div>
+            <div class="col-md-3" id="button playerimgtable pikachu"><img class="img-fluid rounded" src="assets/images/Pikachu_small.png"></div>
+        </div>
+        <div class="row no-gutters">
+            <div class="col-md-3" id="button playerimgtable luigi"><img class="img-fluid rounded" src="assets/images/Luigi_small.png"></div>
+            <div class="col-md-3" id="button playerimgtable ness"><img class="img-fluid rounded" src="assets/images/Ness_small.png"></div>
+            <div class="col-md-3" id="button playerimgtable captfalcon"><img class="img-fluid rounded" src="assets/images/Capt_Falcon_small.png"></div>
+            <div class="col-md-3" id="button playerimgtable iceclimbers"><img class="img-fluid rounded" src="assets/images/Ice_Climbers_small.png"></div>
+        </div>
+        <div class="row no-gutters">
+            <div class="col-md-3" id="button playerimgtable pit"><img class="img-fluid rounded" src="assets/images/Pit_small.png"></div>
+            <div class="col-md-3" id="button playerimgtable ike"><img class="img-fluid rounded" src="assets/images/Ike_small.png"></div>
+            <div class="col-md-3" id="button playerimgtable olimar"><img class="img-fluid rounded" src="assets/images/Olimar_small.png"></div>
+            <div class="col-md-3" id="button playerimgtable megaman"><img class="img-fluid rounded" src="assets/images/Mega_Man_small.png"></div>
+        </div>
+    </div>
+    <div class="container" id="battlebox">
+        <div class="row">
+            <div class="col-md-3" id="button selectbtn"><button type="button" class="btn btn-outline-info">Select</button></div>
+            <div class="col-md-6" id="prompts">
+                <h4 id="showmeyourmoves">Select your fighter!</h4>
+            </div>
+            <div class="col-md-3" id="button clearbtn"><button type="button" class="btn btn-outline-info">Clear</button></div>
+        </div>
+        <div class="row">
+            <div class="col-md-3" id="playercol">
+                <div class="row">
+                    <div class="col-md-12" id="playername">
+                        <h1 id="playerone">Player</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12" id="playerimg">
+                        <img src="assets/images/player1PH.png" id="playeroneimg" class="img-fluid rounded">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12" id="playerHP">
+                        HP: <h2 id="playeroneHP"></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6" id="arena">
+                <img class="img-fluid rounded" id="chosenarena">
+            </div>
+            <div class="col-md-3" id="opponentcol">
+                <div class="row">
+                    <div class="col-md-12" id="opponentname">
+                        <h1 id="pcname">CPU</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12" id="opponentimg">
+                        <img src="assets/images/player2PH.png" id="playertwoimg" class="img-fluid rounded">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12" id="opponentHP">
+                        HP: <h2 id="pcHP"></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3" id="playercol2">
+                <div class="row">
+                    <div class="col-md-12" id="button playerattack"><button type="button" class="btn btn-outline-danger">Attack</button></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12" id="button playersmash"><button type="button" class="btn btn-danger">Smash</button></div>
+                </div>
+            </div>
+            <div class="col-md-6" id="fightlog">
+                <p id="battlearea"></p>
+            </div>
+            <div class="col-md-3" id="opponentcol2">
+                <div class="row">
+                    <div class="col-md-12" id="wins">
+                        Wins: <h2 id="wincounter"></h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12" id="losses">
+                        Losses: <h2 id="losscounter"></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="arenatable">
+        <div class="row no-gutters">
+            <div class="col-md-3" id="button arenaimg bridgeofeldin">
+                <img src="assets/images/SSBU-Bridge_of_Eldin.png" class="img-fluid rounded">
+            </div>
+            <div class="col-md-3" id="button arenaimg delfinoplaza">
+                <img src="assets/images/SSBU-Delfino_Plaza.jpg" class="img-fluid rounded">
+            </div>
+            <div class="col-md-3" id="button arenaimg junglejapes">
+                <img src="assets/images/SSBU-Jungle_Japes.png" class="img-fluid rounded">
+            </div>
+            <div class="col-md-3" id="button arenaimg lylatcruise">
+                <img src="assets/images/SSBU-Lylat_Cruise.jpg" class="img-fluid rounded">
+            </div>
+        </div>
+        <div class="row no-gutters">
+            <div class="col-md-3" id="button arenaimg norfair">
+                <img src="assets/images/SSBU-Norfair.png" class="img-fluid rounded">
+            </div>
+            <div class="col-md-3" id="button arenaimg pokemonstadium">
+                <img src="assets/images/SSBU-Pokémon_Stadium_2.png" class="img-fluid rounded">
+            </div>
+            <div class="col-md-3" id="button arenaimg porttown">
+                <img src="assets/images/SSBU-Port_Town_Aero_Dive.png" class="img-fluid rounded">
+            </div>
+            <div class="col-md-3" id="button arenaimg summit">
+                <img src="assets/images/SSBU-Summit.png" class="img-fluid rounded">
+            </div>
+        </div>
+    </div>
+    <div class="footer bg-dark fixed-bottom">
+        © 2018 Nintendo
+    </div>
+    
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
