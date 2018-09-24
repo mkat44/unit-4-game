@@ -2,104 +2,212 @@ $(document).ready(function() {
     var playerHP = [];
     var opponentHP = [];
     var player = [];
-    var opponent = [];
+    var arena = [];
     var attackDMG = [];
     var damageTaken = [];
     var smashUP = [];
+    var wins = 0;
+    var losses = 0;
     var mario = {
         name: "Mario",
-        fullimage: "../images/Mario.png",
-        splashimage: "../images/Mario_splash.png",
-        winimage: "../images/Mario_pose.gif"
+        fullimage: "../unit-4-game/assets/images/Mario_full.png",
+        splashimage: "../unit-4-game/assets/images/Mario_splash.png",
+        winimage: "../unit-4-game/assets/images/Mario_pose.gif"
     }
     var donkeyKong = {
         name: "Donkey Kong",
-        fullimage: "../images/Donkey_Kong.png",
-        splashimage: "../images/Donkey_Kong_splash.png",
-        winimage: "../images/Donkey_Kong_pose.gif"
+        fullimage: "../unit-4-game/assets/images/Donkey_Kong_full.png",
+        splashimage: "../unit-4-game/assets/images/Donkey_Kong_splash.png",
+        winimage: "../unit-4-game/assets/images/Donkey_Kong_pose.gif"
     }
     var link = {
         name: "Link",
-        fullimage: "../images/Link.png",
-        splashimage: "../images/Link_splash.png",
-        winimage: "../images/Link_pose.gif"
+        fullimage: "../unit-4-game/assets/images/Link_full.png",
+        splashimage: "../unit-4-game/assets/images/Link_splash.png",
+        winimage: "../unit-4-game/assets/images/Link_pose.gif"
     }
     var samus = {
         name: "Samus",
-        fullimage: "../images/Samus.png",
-        splashimage: "../images/Samus_splash.png",
-        winimage: "../images/Samus_pose.gif"
+        fullimage: "../unit-4-game/assets/images/Samus_full.png",
+        splashimage: "../unit-4-game/assets/images/Samus_splash.png",
+        winimage: "../unit-4-game/assets/images/Samus_pose.gif"
     }
     var yoshi = {
         name: "Yoshi",
-        fullimage: "../images/Yoshi.png",
-        splashimage: "../images/Yoshi_splash.png",
-        winimage: "../images/Yoshi_pose.png"
+        fullimage: "../unit-4-game/assets/images/Yoshi_full.png",
+        splashimage: "../unit-4-game/assets/images/Yoshi_splash.png",
+        winimage: "../unit-4-game/assets/images/Yoshi_pose.png"
     }
     var kirby = {
         name: "Kirby",
-        fullimage: "../images/Kirby.png",
-        splashimage: "../images/Kirby_splash.png",
-        winimage: "../images/Kirby_pose.gif"
+        fullimage: "../unit-4-game/assets/images/Kirby_full.png",
+        splashimage: "../unit-4-game/assets/images/Kirby_splash.png",
+        winimage: "../unit-4-game/assets/images/Kirby_pose.gif"
     }
     var fox = {
         name: "Fox",
-        fullimage: "../images/Fox.png",
-        splashimage: "../images/Fox_splash.png",
-        winimage: "../images/Fox_pose.gif"
+        fullimage: "../unit-4-game/assets/images/Fox_full.png",
+        splashimage: "../unit-4-game/assets/images/Fox_splash.png",
+        winimage: "../unit-4-game/assets/images/Fox_pose.gif"
     }
     var pikachu = {
         name: "Pikachu",
-        fullimage: "../images/Pikachu.png",
-        splashimage: "../images/Pikachu_splash.png",
-        winimage: "../images/Pikachu_pose.gif"
+        fullimage: "../unit-4-game/assets/images/Pikachu_full.png",
+        splashimage: "../unit-4-game/assets/images/Pikachu_splash.png",
+        winimage: "../unit-4-game/assets/images/Pikachu_pose.gif"
     }
     var luigi = {
         name: "Luigi",
-        fullimage: "../images/Luigi.png",
-        splashimage: "../images/Luigi_splash.png",
-        winimage: "../images/Luigi_pose.gif"
+        fullimage: "../unit-4-game/assets/images/Luigi_full.png",
+        splashimage: "../unit-4-game/assets/images/Luigi_splash.png",
+        winimage: "../unit-4-game/assets/images/Luigi_pose.gif"
     }
     var ness = {
         name: "Ness",
-        fullimage: "../images/Ness.png",
-        splashimage: "../images/Ness_splash.png",
-        winimage: "../images/Ness_pose.gif"
+        fullimage: "../unit-4-game/assets/images/Ness_full.png",
+        splashimage: "../unit-4-game/assets/images/Ness_spalsh.jpg",
+        winimage: "../unit-4-game/assets/images/Ness_pose.gif"
     }
     var captFalcon = {
         name: "Captain Falcon",
-        fullimage: "../images/Capt_Falcon.png",
-        splashimage: "../images/Capt_Falcon_splash.png",
-        winimage: "../images/Capt_Falcon_pose.gif"
+        fullimage: "../unit-4-game/assets/images/Capt_Falcon_full.png",
+        splashimage: "../unit-4-game/assets/images/Capt_Falcon_splash.png",
+        winimage: "../unit-4-game/assets/images/Capt_Falcon_pose.gif"
     }
     var iceClimbers = {
         name: "Ice Climbers",
-        fullimage: "../images/Ice_Climbers.png",
-        splashimage: "../images/Ice_Climbers_splash.png",
-        winimage: "../images/Ice_Climbers_pose.gif"
+        fullimage: "../unit-4-game/assets/images/Ice_Climbers_full.png",
+        splashimage: "../unit-4-game/assets/images/Ice_Climbers_splash.jpg",
+        winimage: "../unit-4-game/assets/images/Ice_Climbers_pose.gif"
     }
     var pit = {
         name: "Pit",
-        fullimage: "../images/Pit.png",
-        splashimage: "../images/Pit_splash.png",
-        winimage: "../images/Pit_pose.gif"
+        fullimage: "../unit-4-game/assets/images/Pit_full.png",
+        splashimage: "../unit-4-game/assets/images/Pit_splash.png",
+        winimage: "../unit-4-game/assets/images/Pit_pose.gif"
     }
     var ike = {
         name: "Ike",
-        fullimage: "../images/Ike.png",
-        splashimage: "../images/Ike_splash.png",
-        winimage: "../images/Ike_pose.gif"
+        fullimage: "../unit-4-game/assets/images/Ike_full.png",
+        splashimage: "../unit-4-game/assets/images/Ike_splash.jpg",
+        winimage: "../unit-4-game/assets/images/Ike_pose.gif"
     }
     var olimar = {
         name: "Olimar",
-        fullimage: "../images/Olimar.png",
-        splashimage: "../images/Olimar_splash.png",
-        winimage: "../images/Olimar_pose.gif"
+        fullimage: "../unit-4-game/assets/images/Olimar_full.png",
+        splashimage: "../unit-4-game/assets/images/Olimar_splash.png",
+        winimage: "../unit-4-game/assets/images/Olimar_pose.gif"
     }
     var megaMan = {
         name: "Mega Man",
-        fullimage: "../images/Mega_Man.png",
-        splashimage: "../images/Mega_Man_splash.png",
-        winimage: "../images/Mega_Man_pose.gif"
+        fullimage: "../unit-4-game/assets/images/Mega_Man_full.png",
+        splashimage: "../unit-4-game/assets/images/Mega_Man_splash.png",
+        winimage: "../unit-4-game/assets/images/Mega_Man_pose.gif"
     }
+    var fighter = [mario, donkeyKong, link, samus, yoshi, kirby, fox, pikachu, luigi, ness, captFalcon, iceClimbers, pit, ike, olimar, megaMan];
+    var bridgeOfEldin = {
+        name: "Bridge of Eldin",
+        image: "../unit-4-game/assets/images/SSBU-Bridge_of_Eldin.png"
     }
+    var delfinoPlaza = {
+        name: "Delfino Plaza",
+        image: "../unit-4-game/assets/images/SSBU-Delfino_Plaza.jpg"
+    }
+    var jungleJapes = {
+        name: "Jungle Japes",
+        image: "../unit-4-game/assets/images/SSBU-Jungle_Japes.png"
+    }
+    var lylatCruise = {
+        name: "Lylat Cruise",
+        image: "../unit-4-game/assets/images/SSBU-Lylat_Cruise.jpg"
+    }
+    var norfair = {
+        name: "Norfair",
+        image: "../unit-4-game/assets/images/SSBU-Norfair.png"
+    }
+    var pokemonStadium = {
+        name: "Pokemon Stadium",
+        image: "../unit-4-game/assets/images/SSBU-Pokémon_Stadium_2.png"
+    }
+    var portTown = {
+        name: "Port Town",
+        image: "../unit-4-game/assets/images/SSBU-Port_Town_Aero_Dive.png"
+    }
+    var summit = {
+        name: "Summit",
+        image: "../unit-4-game/assets/images/SSBU-Summit.png"
+    }
+    var arenas = [bridgeOfEldin, delfinoPlaza, jungleJapes, lylatCruise, norfair, pokemonStadium, portTown, summit];
+
+    // choose your fighter
+    $(document).on("click", ".playerimgtable", function (){
+        player = $(this).attr("value");
+        console.log(player);
+        var player1 = "";
+        $("#arena").empty();
+        for (var i = 0; i < fighter.length; i++) {
+            if (player == fighter[i].name) {
+                player1 = fighter[i];
+                console.log(player1.name);
+            }
+        }
+        let splashimg = $("<img>");
+        splashimg.addClass("chosenarena");
+        splashimg.attr("src", player1.splashimage);
+        splashimg.attr(".img-fluid");
+        $("#arena").append(splashimg);
+        console.log(player1.splashimage);
+
+        // choose your fighter pt2
+        $(document).on("click", "#selectbtn", function() {
+            let playerimg = $("#playeroneimg");
+            playerimg.attr("src", player1.fullimage);
+            $("#playeroneimg").empty();
+            $("#playeroneimg").append(playerimg);
+            $("#playerone").empty();
+            $("#playerone").append(player1.name);
+            console.log(player1.fullimage);
+        })
+        // choose your opponent
+        $(document).on("click", "#select2btn", function() {
+            let playerimg = $("#playertwoimg");
+            playerimg.attr("src", player1.fullimage);
+            $("playertwoimg").empty();
+            $("#playertwoimg").append(playerimg);
+            $("#pcname").empty();
+            $("#pcname").append(player1.name);
+            console.log(player1.fullimage);
+        })
+    })
+
+    // choose your arena
+    $(document).on("click", ".arenaimg", function () {
+        arena = $(this).attr("value");
+        console.log(arena);
+        var chosenarena = "";
+        for (var i = 0; i < arenas.length; i++) {
+            if (arena == arenas[i].name) {
+                chosenarena = arenas[i];
+                console.log(chosenarena.name);
+            }
+        }
+        let chosenarenaimg = $("<img>");
+        chosenarenaimg.addClass("chosenarena");
+        chosenarenaimg.attr("src", chosenarena.image);
+        chosenarenaimg.attr(".img-fluid");
+        chosenarenaimg.attr(".rounded");
+        $("#arena").empty();
+        $("#arena").append(chosenarenaimg);
+        console.log("Arena Image Working");
+    })
+
+    // attack
+    $(document).on("click", "playerattack", function (){
+
+    })
+
+    // smash function
+    $(document).on("click", "playersmash", function (){
+
+    })
+})

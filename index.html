@@ -7,9 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="assets/javascript/game.js"></script>
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
 </head>
 <body>
     <div class="header bg-dark sticky-top">
@@ -45,43 +44,43 @@
     </div>
     <div class="container" id="charactertable">
         <div class="row no-gutters">
-            <div class="col-md-3" id="button playerimgtable mario"><img class="img-fluid rounded" src="assets/images/Mario_small.png"></div>
-            <div class="col-md-3" id="button playerimgtable dk"><img class="img-fluid rounded" src="assets/images/Donkey_Kong_small.png"></div>
-            <div class="col-md-3" id="button playerimgtable link"><img class="img-fluid rounded" src="assets/images/Link_small.png"></div>
-            <div class="col-md-3" id="button playerimgtable samus"><img class="img-fluid rounded" src="assets/images/Samus_small.png"></div>
+            <div class="col-md-3 playerimgtable" value="Mario"><img class="img-fluid rounded" src="assets/images/Mario_small.png"></div>
+            <div class="col-md-3 playerimgtable" value="Donkey Kong"><img class="img-fluid rounded" src="assets/images/Donkey_Kong_small.png"></div>
+            <div class="col-md-3 playerimgtable" value="Link"><img class="img-fluid rounded" src="assets/images/Link_small.png"></div>
+            <div class="col-md-3 playerimgtable" value="Samus"><img class="img-fluid rounded" src="assets/images/Samus_small.png"></div>
         </div>
         <div class="row no-gutters">
-            <div class="col-md-3" id="button playerimgtable yoshi"><img class="img-fluid rounded" src="assets/images/Yoshi_small.png"></div>
-            <div class="col-md-3" id="button playerimgtable kirby"><img class="img-fluid rounded" src="assets/images/Kirby_small.png"></div>
-            <div class="col-md-3" id="button playerimgtable fox"><img class="img-fluid rounded" src="assets/images/Fox_small.png"></div>
-            <div class="col-md-3" id="button playerimgtable pikachu"><img class="img-fluid rounded" src="assets/images/Pikachu_small.png"></div>
+            <div class="col-md-3 playerimgtable" value="Yoshi"><img class="img-fluid rounded" src="assets/images/Yoshi_small.png"></div>
+            <div class="col-md-3 playerimgtable" value="Kirby"><img class="img-fluid rounded" src="assets/images/Kirby_small.png"></div>
+            <div class="col-md-3 playerimgtable" value="Fox"><img class="img-fluid rounded" src="assets/images/Fox_small.png"></div>
+            <div class="col-md-3 playerimgtable" value="Pikachu"><img class="img-fluid rounded" src="assets/images/Pikachu_small.png"></div>
         </div>
         <div class="row no-gutters">
-            <div class="col-md-3" id="button playerimgtable luigi"><img class="img-fluid rounded" src="assets/images/Luigi_small.png"></div>
-            <div class="col-md-3" id="button playerimgtable ness"><img class="img-fluid rounded" src="assets/images/Ness_small.png"></div>
-            <div class="col-md-3" id="button playerimgtable captfalcon"><img class="img-fluid rounded" src="assets/images/Capt_Falcon_small.png"></div>
-            <div class="col-md-3" id="button playerimgtable iceclimbers"><img class="img-fluid rounded" src="assets/images/Ice_Climbers_small.png"></div>
+            <div class="col-md-3 playerimgtable" value="Luigi"><img class="img-fluid rounded" src="assets/images/Luigi_small.png"></div>
+            <div class="col-md-3 playerimgtable" value="Ness"><img class="img-fluid rounded" src="assets/images/Ness_small.png"></div>
+            <div class="col-md-3 playerimgtable" value="Captain Falcon"><img class="img-fluid rounded" src="assets/images/Capt_Falcon_small.png"></div>
+            <div class="col-md-3 playerimgtable" value="Ice Climbers"><img class="img-fluid rounded" src="assets/images/Ice_Climbers_small.png"></div>
         </div>
         <div class="row no-gutters">
-            <div class="col-md-3" id="button playerimgtable pit"><img class="img-fluid rounded" src="assets/images/Pit_small.png"></div>
-            <div class="col-md-3" id="button playerimgtable ike"><img class="img-fluid rounded" src="assets/images/Ike_small.png"></div>
-            <div class="col-md-3" id="button playerimgtable olimar"><img class="img-fluid rounded" src="assets/images/Olimar_small.png"></div>
-            <div class="col-md-3" id="button playerimgtable megaman"><img class="img-fluid rounded" src="assets/images/Mega_Man_small.png"></div>
+            <div class="col-md-3 playerimgtable" value="Pit"><img class="img-fluid rounded" src="assets/images/Pit_small.png"></div>
+            <div class="col-md-3 playerimgtable" value="Ike"><img class="img-fluid rounded" src="assets/images/Ike_small.png"></div>
+            <div class="col-md-3 playerimgtable" value="Olimar"><img class="img-fluid rounded" src="assets/images/Olimar_small.png"></div>
+            <div class="col-md-3 playerimgtable" value="Mega Man"><img class="img-fluid rounded" src="assets/images/Mega_Man_small.png"></div>
         </div>
     </div>
     <div class="container" id="battlebox">
         <div class="row">
-            <div class="col-md-3" id="button selectbtn"><button type="button" class="btn btn-outline-info">Select</button></div>
+            <div class="col-md-3" id="selectbtn"><h5>Player -- </h5><button type="button" class="btn btn-outline-info">Select</button></div>
             <div class="col-md-6" id="prompts">
                 <h4 id="showmeyourmoves">Select your fighter!</h4>
             </div>
-            <div class="col-md-3" id="button clearbtn"><button type="button" class="btn btn-outline-info">Clear</button></div>
+            <div class="col-md-3" id="select2btn"><h5>CPU -- </h5><button type="button" class="btn btn-outline-info">Select</button></div>
         </div>
         <div class="row">
             <div class="col-md-3" id="playercol">
                 <div class="row">
                     <div class="col-md-12" id="playername">
-                        <h1 id="playerone">Player</h1>
+                        <h1 id="playerone"></h1>
                     </div>
                 </div>
                 <div class="row">
@@ -96,12 +95,11 @@
                 </div>
             </div>
             <div class="col-md-6" id="arena">
-                <img class="img-fluid rounded" id="chosenarena">
             </div>
             <div class="col-md-3" id="opponentcol">
                 <div class="row">
                     <div class="col-md-12" id="opponentname">
-                        <h1 id="pcname">CPU</h1>
+                        <h1 id="pcname"></h1>
                     </div>
                 </div>
                 <div class="row">
@@ -144,31 +142,31 @@
     </div>
     <div class="container" id="arenatable">
         <div class="row no-gutters">
-            <div class="col-md-3" id="button arenaimg bridgeofeldin">
-                <img src="assets/images/SSBU-Bridge_of_Eldin.png" class="img-fluid rounded">
+            <div class="col-md-3 arenaimg" value="Bridge of Eldin">
+                <img src="assets/images/SSBU-Bridge_of_Eldin.png" class="img-fluid rounded arenaimage">
             </div>
-            <div class="col-md-3" id="button arenaimg delfinoplaza">
-                <img src="assets/images/SSBU-Delfino_Plaza.jpg" class="img-fluid rounded">
+            <div class="col-md-3 arenaimg" value="Delfino Plaza">
+                <img src="assets/images/SSBU-Delfino_Plaza.jpg" class="img-fluid rounded arenaimage">
             </div>
-            <div class="col-md-3" id="button arenaimg junglejapes">
-                <img src="assets/images/SSBU-Jungle_Japes.png" class="img-fluid rounded">
+            <div class="col-md-3 arenaimg" value="Jungle Japes">
+                <img src="assets/images/SSBU-Jungle_Japes.png" class="img-fluid rounded arenaimage">
             </div>
-            <div class="col-md-3" id="button arenaimg lylatcruise">
-                <img src="assets/images/SSBU-Lylat_Cruise.jpg" class="img-fluid rounded">
+            <div class="col-md-3 arenaimg" value="Lylat Cruise">
+                <img src="assets/images/SSBU-Lylat_Cruise.jpg" class="img-fluid rounded arenaimage">
             </div>
         </div>
         <div class="row no-gutters">
-            <div class="col-md-3" id="button arenaimg norfair">
-                <img src="assets/images/SSBU-Norfair.png" class="img-fluid rounded">
+            <div class="col-md-3 arenaimg" value="Norfair">
+                <img src="assets/images/SSBU-Norfair.png" class="img-fluid rounded arenaimage">
             </div>
-            <div class="col-md-3" id="button arenaimg pokemonstadium">
-                <img src="assets/images/SSBU-Pokémon_Stadium_2.png" class="img-fluid rounded">
+            <div class="col-md-3 arenaimg" value="Pokemon Stadium">
+                <img src="assets/images/SSBU-Pokémon_Stadium_2.png" class="img-fluid rounded arenaimage">
             </div>
-            <div class="col-md-3" id="button arenaimg porttown">
-                <img src="assets/images/SSBU-Port_Town_Aero_Dive.png" class="img-fluid rounded">
+            <div class="col-md-3 arenaimg" value="Port Town">
+                <img src="assets/images/SSBU-Port_Town_Aero_Dive.png" class="img-fluid rounded arenaimage">
             </div>
-            <div class="col-md-3" id="button arenaimg summit">
-                <img src="assets/images/SSBU-Summit.png" class="img-fluid rounded">
+            <div class="col-md-3 arenaimg" value="Summit">
+                <img src="assets/images/SSBU-Summit.png" class="img-fluid rounded arenaimage">
             </div>
         </div>
     </div>
