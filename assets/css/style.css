@@ -41,11 +41,11 @@ h6 {
 }
 
 .no-gutters {
-    padding: .5%;
+    padding: 1%;
 }
 
 #battlebox {
-    width: 80%;
+    width: 90%;
     height: 60%;
     border-style: ridge;
     border-width: 3px;
@@ -61,7 +61,7 @@ h6 {
 }
 
 #arena {
-    width: 40%;
+    width: 50%;
     height: 30%;
 }
 

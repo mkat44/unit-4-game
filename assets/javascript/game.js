@@ -1,6 +1,6 @@
 $(document).ready(function() {
-    var playerHP = [];
-    var opponentHP = [];
+    var playerHP = 300;
+    var opponentHP = 300;
     var player = [];
     var arena = [];
     var attackDMG = [];
@@ -107,76 +107,104 @@ $(document).ready(function() {
     var fighter = [mario, donkeyKong, link, samus, yoshi, kirby, fox, pikachu, luigi, ness, captFalcon, iceClimbers, pit, ike, olimar, megaMan];
     var bridgeOfEldin = {
         name: "Bridge of Eldin",
-        image: "../unit-4-game/assets/images/SSBU-Bridge_of_Eldin.png"
+        image: "../unit-4-game/assets/images/SSBU-Bridge_of_Eldin.png",
+        music: "https://youtu.be/hQRN7OPb31w"
     }
     var delfinoPlaza = {
         name: "Delfino Plaza",
-        image: "../unit-4-game/assets/images/SSBU-Delfino_Plaza.jpg"
+        image: "../unit-4-game/assets/images/SSBU-Delfino_Plaza.jpg",
+        music: "https://youtu.be/Jm959nitJhE"
     }
     var jungleJapes = {
         name: "Jungle Japes",
-        image: "../unit-4-game/assets/images/SSBU-Jungle_Japes.png"
+        image: "../unit-4-game/assets/images/SSBU-Jungle_Japes.png",
+        music: "https://youtu.be/MR5vDa5ahCg"
     }
     var lylatCruise = {
         name: "Lylat Cruise",
-        image: "../unit-4-game/assets/images/SSBU-Lylat_Cruise.jpg"
+        image: "../unit-4-game/assets/images/SSBU-Lylat_Cruise.jpg",
+        music: "https://youtu.be/BIQImsz5r-k"
     }
     var norfair = {
         name: "Norfair",
-        image: "../unit-4-game/assets/images/SSBU-Norfair.png"
+        image: "../unit-4-game/assets/images/SSBU-Norfair.png",
+        music: "https://youtu.be/CSbV5FNKvxU"
     }
     var pokemonStadium = {
         name: "Pokemon Stadium",
-        image: "../unit-4-game/assets/images/SSBU-Pokémon_Stadium_2.png"
+        image: "../unit-4-game/assets/images/SSBU-Pokémon_Stadium_2.png",
+        music: "https://youtu.be/v6oSEzF-YQM"
     }
     var portTown = {
         name: "Port Town",
-        image: "../unit-4-game/assets/images/SSBU-Port_Town_Aero_Dive.png"
+        image: "../unit-4-game/assets/images/SSBU-Port_Town_Aero_Dive.png",
+        music: "https://youtu.be/pfKL1nciq-o"
+
     }
     var summit = {
         name: "Summit",
-        image: "../unit-4-game/assets/images/SSBU-Summit.png"
+        image: "../unit-4-game/assets/images/SSBU-Summit.png",
+        music: "https://youtu.be/sm3oGbx8uwo"
     }
     var arenas = [bridgeOfEldin, delfinoPlaza, jungleJapes, lylatCruise, norfair, pokemonStadium, portTown, summit];
+    var player1 = "";
+    var player2 = "";
+
+    // place win/loss counters
+    $("#wincounter").append(wins);
+    $("#losscounter").append(losses);
 
     // choose your fighter
     $(document).on("click", ".playerimgtable", function (){
+        // adding audio
         player = $(this).attr("value");
         console.log(player);
-        var player1 = "";
+        var playerselect = "";
         $("#arena").empty();
         for (var i = 0; i < fighter.length; i++) {
             if (player == fighter[i].name) {
-                player1 = fighter[i];
-                console.log(player1.name);
+                playerselect = fighter[i];
+                console.log(playerselect.name);
             }
         }
         let splashimg = $("<img>");
         splashimg.addClass("chosenarena");
-        splashimg.attr("src", player1.splashimage);
+        splashimg.attr("src", playerselect.splashimage);
         splashimg.attr(".img-fluid");
         $("#arena").append(splashimg);
-        console.log(player1.splashimage);
+        console.log(playerselect.splashimage);
 
         // choose your fighter pt2
         $(document).on("click", "#selectbtn", function() {
             let playerimg = $("#playeroneimg");
-            playerimg.attr("src", player1.fullimage);
+            playerimg.attr("src", playerselect.fullimage);
+            player1 = playerselect;
+            playerHP = 300;
             $("#playeroneimg").empty();
             $("#playeroneimg").append(playerimg);
             $("#playerone").empty();
-            $("#playerone").append(player1.name);
-            console.log(player1.fullimage);
+            $("#playerone").append(playerselect.name);
+            $("#player1HP").empty();
+            $("#player1HP").append(playerHP);
+            $("#showmeyourmoves").empty();
+            $("#showmeyourmoves").append("Select your opponent!");
+            console.log(playerselect.fullimage);
         })
         // choose your opponent
         $(document).on("click", "#select2btn", function() {
             let playerimg = $("#playertwoimg");
-            playerimg.attr("src", player1.fullimage);
+            playerimg.attr("src", playerselect.fullimage);
+            player2 = playerselect;
+            opponentHP = 300;
             $("playertwoimg").empty();
             $("#playertwoimg").append(playerimg);
             $("#pcname").empty();
-            $("#pcname").append(player1.name);
-            console.log(player1.fullimage);
+            $("#pcname").append(playerselect.name);
+            $("#pcHP").empty();
+            $("#pcHP").append(opponentHP);
+            $("#showmeyourmoves").empty();
+            $("#showmeyourmoves").append("Select your arena!");
+            console.log(playerselect.fullimage);
         })
     })
 
@@ -193,21 +221,90 @@ $(document).ready(function() {
         }
         let chosenarenaimg = $("<img>");
         chosenarenaimg.addClass("chosenarena");
+        chosenarenaimg.addClass("img-fluid");
+        chosenarenaimg.addClass("rounded");
         chosenarenaimg.attr("src", chosenarena.image);
-        chosenarenaimg.attr(".img-fluid");
-        chosenarenaimg.attr(".rounded");
         $("#arena").empty();
         $("#arena").append(chosenarenaimg);
+        $("#showmeyourmoves").empty();
+        $("#showmeyourmoves").append("Show me your moves!");
         console.log("Arena Image Working");
     })
 
     // attack
-    $(document).on("click", "playerattack", function (){
+    $(document).on("click", "#playerattack", function() {
+        attackDMG = Math.round(Math.random() * 100);
+        damageTaken = Math.round(Math.random() * 100);
+        console.log("Button click happening");
+        if (attackDMG >= 70 && opponentHP > 0) {
+            $("#fightlog").html("Critical hit! You scored " + attackDMG + " points of damage. <br>");
+        }
+        else {
+            $("#fightlog").html("You scored " + attackDMG + " points of damage. <br>");
+        };
+        $("#pcHP").empty();
+        opponentHP -= attackDMG;
+        if (opponentHP < 0) {
+            opponentHP = 0;
+        }
+        $("#pcHP").append(opponentHP);
+        console.log("Getting in");
 
+        if (damageTaken >= 70 && playerHP > 0) {
+            $("#fightlog").append("Ouch! You took " + damageTaken + " points of damage from a critical hit. ");
+        }
+        else {
+            $("#fightlog").append("Your opponent hit back for " + damageTaken + " points of damage. ");
+        };
+        $("#player1HP").empty();
+        playerHP -= damageTaken;
+            if (playerHP < 0) {
+                playerHP = 0;
+            }
+        $("#player1HP").append(playerHP);
+        console.log("punches thrown");
+
+        if (playerHP == 0 && opponentHP == 0) {
+            $("#fightlog").html("My oh my! <br>");
+            $("#fightlog").append("You've managed to tie!");
+            $("#arena").empty();
+            $("#showmeyourmoves").empty();
+            $("#showmeyourmoves").append("Select new fighters to try again!");
+        }
+        else if (opponentHP <= 0) {
+            $("#fightlog").html("Success!! <br>");
+            $("#fightlog").append("Congratulations! You won!")
+            $("#arena").empty();
+            let winnerisyou = $("<img>");
+            winnerisyou.addClass("chosenarena");
+            winnerisyou.attr("src", player1.winimage);
+            winnerisyou.attr(".img-fluid");
+            $("#arena").append(winnerisyou);
+            wins++;
+            $("#wincounter").empty();
+            $("#wincounter").append(wins);
+            $("#showmeyourmoves").empty();
+            $("#showmeyourmoves").append("Congratulations! Select a fighter to play again.");
+        }
+        else if (playerHP <= 0) {
+            $("#fightlog").html("Oh no! You've lost. <br>");
+            $("#fightlog").append("Better luck next time, champ. ");
+            $("#arena").empty();
+            let winnerisyou = $("<img>");
+            winnerisyou.addClass("chosenarena");
+            winnerisyou.attr("src", player2.winimage);
+            winnerisyou.attr(".img-fluid");
+            $("#arena").append(winnerisyou);
+            losses++;
+            $("#losscounter").empty();
+            $("#losscounter").append(losses);
+            $("#showmeyourmoves").empty();
+            $("#showmeyourmoves").append("Select a fighter to take your revenge.");
+        }
     })
 
-    // smash function
-    $(document).on("click", "playersmash", function (){
+    // smash function -- future functionality
+    // $(document).on("click", "playersmash", function (){
 
-    })
+    // })
 })
